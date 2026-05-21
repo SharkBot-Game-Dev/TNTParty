@@ -11,7 +11,7 @@ import org.shark.tntparty.Tntparty;
 import java.util.Random;
 
 public class PlayerInteract implements Listener {
-    private Tntparty plugin;
+    private final Tntparty plugin;
     private final Random random = new Random();
 
     public PlayerInteract(Tntparty plugin) {
