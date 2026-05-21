@@ -1,0 +1,8 @@
+name: tntparty
+description: プレイヤーのいるチャンクに定期的にTNTを落とすプラグインです。
+version: '1.0.0'
+
+main: org.shark.tntparty.Tntparty
+api-version: '26.1'
+
+authors: [ neko ]
