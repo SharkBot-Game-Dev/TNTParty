@@ -4,7 +4,6 @@ import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.shark.tntparty.Tntparty;
 
@@ -16,18 +15,6 @@ public class PlayerInteract implements Listener {
 
     public PlayerInteract(Tntparty plugin) {
         this.plugin = plugin;
-    }
-
-    @EventHandler
-    public void onPlayerInteractAtEntity(PlayerInteractAtEntityEvent interactAtEntityEvent) {
-        int probability = random.nextInt(16);
-
-        if (probability == 0) {
-            var world = interactAtEntityEvent.getPlayer().getWorld();
-            var entityLocation = interactAtEntityEvent.getClickedPosition().toLocation(world);
-
-            plugin.getSpawntnt().spawnTNT(world, entityLocation);
-        }
     }
 
     @EventHandler

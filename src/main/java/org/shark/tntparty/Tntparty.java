@@ -3,11 +3,11 @@ package org.shark.tntparty;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.TNTPrimed;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.shark.tntparty.events.MobAttack;
 import org.shark.tntparty.events.PlayerInteract;
 import org.shark.tntparty.lib.SpawnTnt;
 
@@ -18,13 +18,16 @@ public final class Tntparty extends JavaPlugin {
     Logger logger;
     private final Random random = new Random();
     public final SpawnTnt spawntnt = new SpawnTnt();
+    public PluginManager pluginManager;
 
     @Override
     public void onEnable() {
         logger = this.getLogger();
         logger.info("[TNTParty] 起動しました。");
 
-        Bukkit.getPluginManager().registerEvents(new PlayerInteract(this), this);
+        pluginManager = Bukkit.getPluginManager();
+        pluginManager.registerEvents(new PlayerInteract(this), this);
+        pluginManager.registerEvents(new MobAttack(this), this);
 
         long delayTicks = 0L;
         long periodTicks = 200L;
