@@ -9,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.shark.tntparty.events.MobAttack;
 import org.shark.tntparty.events.PlayerInteract;
+import org.shark.tntparty.events.ProjectileHit;
 import org.shark.tntparty.lib.SpawnTnt;
 
 import java.util.Random;
@@ -28,6 +29,7 @@ public final class Tntparty extends JavaPlugin {
         pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new PlayerInteract(this), this);
         pluginManager.registerEvents(new MobAttack(this), this);
+        pluginManager.registerEvents(new ProjectileHit(this), this);
 
         long delayTicks = 0L;
         long periodTicks = 200L;
